@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Eventos{% endblock %}
+{% block content %}
+<h2>Lista de Eventos</h2>
+<ul>
+    {% for evento in eventos %}
+        <li>
+            <strong>{{ evento.nome }}</strong><br>
+            📍 {{ evento.local }} – 📅 {{ evento.data }} às 🕒 {{ evento.hora }}
+        </li>
+    {% empty %}
+        <li>Nenhum evento disponível no momento.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
