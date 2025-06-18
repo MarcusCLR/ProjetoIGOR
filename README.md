@@ -1,2 +1,0 @@
-# ProjetoIGOR
-AV3 - CORES QUE ABRAÇAM
