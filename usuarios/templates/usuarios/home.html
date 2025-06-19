@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<style>
+    .layout {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        width: 160px;
+        background-color: #6a1b9a;
+        padding: 30px 15px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .sidebar h2 {
+        font-size: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 12px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar a:hover {
+        background-color: #4a148c;
+    }
+
+    .sidebar a i {
+        margin-right: 8px;
+    }
+
+    .content {
+        flex: 1;
+        padding: 40px;
+        background-color: #f7f7f7;
+    }
+
+    .content h1 {
+        color: #6a1b9a;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .auth-buttons a {
+        padding: 10px 20px;
+        background-color: #6a1b9a;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .auth-buttons a:hover {
+        background-color: #4a148c;
+    }
+
+    .content p {
+        font-size: 18px;
+        color: #444;
+    }
+</style>
+
+<div class="layout">
+    <div class="sidebar">
+        <h2>Cores 🌈</h2>
+        <a href="{% url 'home' %}"><i class="fas fa-home"></i> Início</a>
+        <a href="{% url 'listar_eventos' %}">Eventos</a>
+        <a href="#">Sobre</a>
+        <a href="{% url 'logout' %}">Sair</a>
+    </div>
+
+    <div class="content">
+        <h1>Bem-vindo(a) ao Cores que Abraçam</h1>
+
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}">Entrar</a>
+            <a href="{% url 'signup' %}">Cadastrar</a>
+        </div>
+
+        <p>Explore eventos feitos com amor, diversidade e inclusão.</p>
+    </div>
+</div>
+{% endblock %}
