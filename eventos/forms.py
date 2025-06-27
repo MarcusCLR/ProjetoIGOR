@@ -9,3 +9,5 @@ class EventoForm(forms.ModelForm):
             'data': forms.DateInput(attrs={'type': 'date'}),
             'hora': forms.TimeInput(attrs={'type': 'time'}),
         }
+        
+        #gggggggggggggggggggggggg
