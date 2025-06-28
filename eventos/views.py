@@ -7,7 +7,7 @@ def listar_eventos(request):
     eventos = Evento.objects.all().order_by('data')
     return render(request, 'eventos/listar_eventos.html', {'eventos': eventos})
 
-@login_required  # <-- adicione aqui na sua view completa
+@login_required
 def criar_evento(request):
     if request.method == 'POST':
         form = EventoForm(request.POST)
@@ -17,3 +17,6 @@ def criar_evento(request):
     else:
         form = EventoForm()
     return render(request, 'eventos/criar_evento.html', {'form': form})
+
+def sobre(request):
+    return render(request, 'eventos/sobre.html')
