@@ -2,9 +2,19 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 def login_view(request):
-    return HttpResponse("Página de login")
+    if request.method == 'POST':
+        username = request.POST['username']
+        senha = request.POST['password']
+        user = authenticate(request, username=username, password=senha)
+        if user:
+            login(request, user)
+            return redirect('/eventos/')  # ou use redirect('nome_da_view')
+        else:
+            messages.error(request, 'Usuário ou senha inválidos.')
+    return render(request, 'usuarios/login.html')
 
 def signup_view(request):
     print("⚠️ Entrou na view de cadastro!")
