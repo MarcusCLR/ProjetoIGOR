@@ -33,3 +33,6 @@ def logout_view(request):
 def home_view(request):
     return render(request, 'usuarios/home.html')
 
+def faq_view(request):
+     return render(request, 'usuarios/faq.html')
+
