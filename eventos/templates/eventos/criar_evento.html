@@ -2,23 +2,86 @@
 {% block title %}Criar Evento LGBT{% endblock %}
 {% block content %}
 <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .layout {
+    display: flex;
+  }
+
+  .sidebar {
+    width: 140px;
+    background-color: #6a1b9a;
+    padding: 25px 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .sidebar a {
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    padding: 10px 8px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+  }
+
+  .sidebar a i {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+
   .evento-container {
     max-width: 600px;
     margin: 2rem auto;
+    margin-left: 180px; /* margem para não ficar atrás da sidebar */
     background: linear-gradient(135deg, #ff6ec7, #6ecfff, #9aff6e);
     border-radius: 16px;
     padding: 2rem;
     color: #fff;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
+
   .evento-container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
   }
+
   .evento-container form label {
     font-weight: bold;
   }
+
   .evento-container form input,
   .evento-container form select,
   .evento-container form textarea {
@@ -29,6 +92,7 @@
     border: none;
     font-size: 1rem;
   }
+
   .evento-container form button {
     background-color: #fff;
     color: #000;
@@ -39,17 +103,28 @@
     cursor: pointer;
     transition: transform 0.2s;
   }
+
   .evento-container form button:hover {
     transform: scale(1.05);
   }
 </style>
 
-<div class="evento-container">
-  <h2>🌈 Criar Novo Evento 🌈</h2>
-  <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Salvar Evento</button>
-  </form>
+<div class="layout">
+  <div class="sidebar">
+    <h2>Cores 🌈</h2>
+    <a href="{% url 'home' %}"><i class="fas fa-home"></i> Início</a>
+    <a href="{% url 'listar_eventos' %}"><i class="fas fa-calendar-alt"></i> Eventos</a>
+    <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
+    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
+  </div>
+
+  <div class="evento-container">
+    <h2>🌈 Criar Novo Evento 🌈</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar Evento</button>
+    </form>
+  </div>
 </div>
 {% endblock %}
