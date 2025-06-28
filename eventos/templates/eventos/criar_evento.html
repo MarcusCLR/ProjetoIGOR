@@ -1,10 +1,55 @@
 {% extends "base.html" %}
-{% block title %}Criar Evento{% endblock %}
+{% block title %}Criar Evento LGBT{% endblock %}
 {% block content %}
-<h2>Criar Novo Evento</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Salvar</button>
-</form>
+<style>
+  .evento-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #ff6ec7, #6ecfff, #9aff6e);
+    border-radius: 16px;
+    padding: 2rem;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .evento-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  .evento-container form label {
+    font-weight: bold;
+  }
+  .evento-container form input,
+  .evento-container form select,
+  .evento-container form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+  }
+  .evento-container form button {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .evento-container form button:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="evento-container">
+  <h2>🌈 Criar Novo Evento 🌈</h2>
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Salvar Evento</button>
+  </form>
+</div>
 {% endblock %}
