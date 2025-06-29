@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Ignora ambientes virtuais (ajuste conforme o nome do seu ambiente)
+venv/
+.env/
+.env
