@@ -27,6 +27,14 @@
         z-index: 1000;
     }
 
+    .sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
     .sidebar a {
         width: 100%;
         color: white;
@@ -100,8 +108,8 @@
         <h2>Cores</h2>
         <a href="{% url 'home' %}"><i class="fas fa-home"></i> Início</a>
         <a href="{% url 'listar_eventos' %}"><i class="fas fa-calendar-alt"></i> Eventos</a>
-        <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
-        <a href="#"><i class="fas fa-info-circle"></i> Sobre</a>
+        <a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="{% url 'sobre' %}"><i class="fas fa-info-circle"></i> Sobre</a>
         <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
     </div>
 

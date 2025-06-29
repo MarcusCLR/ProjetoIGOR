@@ -12,11 +12,15 @@ def criar_evento(request):
     if request.method == 'POST':
         form = EventoForm(request.POST)
         if form.is_valid():
-            form.save()
+            evento = form.save(commit=False)
+            evento.criador = request.user
+            evento.save()
             return redirect('listar_eventos')
     else:
         form = EventoForm()
     return render(request, 'eventos/criar_evento.html', {'form': form})
 
+
 def sobre(request):
     return render(request, 'eventos/sobre.html')
+

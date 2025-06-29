@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-
+from .forms import UsuarioForm
+from eventos.forms import EventoForm
 
 def login_view(request):
     if request.method == 'POST':
@@ -47,5 +48,24 @@ def home_view(request):
 def faq_view(request):
    return render(request, 'usuarios/faq.html')
 
+def cadastrar_usuario(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('sucesso')  # ou alguma página de confirmação
+    else:
+        form = UsuarioForm()
+    return render(request, 'cadastro.html', {'form': form})
+
+def criar_evento(request):
+    if request.method == 'POST':
+        form = EventoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listar_eventos')  # substitua com sua URL real
+    else:
+        form = EventoForm()
+    return render(request, 'criar_evento.html', {'form': form})
 
 
