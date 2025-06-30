@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import UsuarioForm
 from eventos.forms import EventoForm
 
@@ -40,11 +41,15 @@ def signup_view(request):
 
 
 def logout_view(request):
-    return HttpResponse("Logout feito")
+    logout(request)
+    messages.success(request, 'Logout realizado com sucesso.')
+    return redirect('login')
 
+@login_required(login_url='login')
 def home_view(request):
     return render(request, 'usuarios/home.html')
 
+@login_required(login_url='login')
 def faq_view(request):
    return render(request, 'usuarios/faq.html')
 
@@ -58,6 +63,7 @@ def cadastrar_usuario(request):
         form = UsuarioForm()
     return render(request, 'cadastro.html', {'form': form})
 
+@login_required(login_url='login')
 def criar_evento(request):
     if request.method == 'POST':
         form = EventoForm(request.POST)
