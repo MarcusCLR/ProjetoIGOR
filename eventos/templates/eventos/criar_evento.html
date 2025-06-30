@@ -85,7 +85,7 @@
   .evento-container form input,
   .evento-container form select,
   .evento-container form textarea {
-    width: 100%;
+    width: 95%;
     padding: 0.75rem;
     margin-bottom: 1rem;
     border-radius: 8px;
@@ -114,6 +114,7 @@
     <h2>Cores</h2>
     <a href="{% url 'home' %}"><i class="fas fa-home"></i> Início</a>
     <a href="{% url 'listar_eventos' %}"><i class="fas fa-calendar-alt"></i> Eventos</a>
+    <a href="{% url 'criar_evento' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Criar Evento</a>
     <a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a>
     <a href="{% url 'sobre' %}"><i class="fas fa-info-circle"></i> Sobre</a>
     <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
@@ -124,7 +125,9 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Salvar Evento</button>
+        <div style="display: flex; flex-direction: column;">
+          <button type="submit">Salvar Evento</button>
+        </div>
     </form>
   </div>
 </div>

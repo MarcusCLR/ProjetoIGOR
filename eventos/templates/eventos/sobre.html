@@ -82,12 +82,17 @@
         margin-left: 140px;
         padding: 20px;
     }
+
+    .justify-text {
+        text-align: justify;
+    }
 </style>
 
 <div class="sidebar">
     <h2>Cores</h2>
     <a href="{% url 'home' %}"><i class="fas fa-home"></i> Início</a>
     <a href="{% url 'listar_eventos' %}"><i class="fas fa-calendar-alt"></i> Eventos</a>
+    <a href="{% url 'criar_evento' %}"><i class="fa fa-plus-circle" aria-hidden="true"></i> Criar Evento</a>
     <a href="{% url 'faq' %}"><i class="fas fa-question-circle"></i> FAQ</a>
     <a href="{% url 'sobre' %}"><i class="fas fa-info-circle"></i> Sobre</a>
     <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Sair</a>
@@ -96,13 +101,13 @@
 <div class="content-sobre">
     <div class="sobre-container">
       <h1>Sobre o Cores que Abraçam</h1>
-      <p>
+      <p class="justify-text">
         O <span class="highlight">Cores que Abraçam</span> é um espaço dedicado à promoção de eventos, informações e apoio a pessoas LGBTQIA+. Nosso objetivo é fortalecer a comunidade, celebrando a diversidade e lutando por respeito e igualdade.
       </p>
-      <p>
+      <p class="justify-text">
         Aqui, você pode encontrar e criar eventos inclusivos, divulgar iniciativas e participar de ações que contribuem para um mundo mais justo e acolhedor para todos.
       </p>
-      <p>
+      <p class="justify-text">
         Juntos, acreditamos que o respeito e o amor são as cores que mais abraçam.
       </p>
     </div>
