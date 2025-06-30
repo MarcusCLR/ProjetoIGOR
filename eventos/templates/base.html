@@ -12,11 +12,6 @@
 <body>
     <header>
         <h1><a href="{% url 'listar_eventos' %}">Cores que Abraçam</a></h1>
-        <nav>
-            <a href="{% url 'listar_eventos' %}">Eventos</a> |
-            <a href="{% url 'criar_evento' %}">Criar Evento</a>
-        </nav>
-        <hr>
     </header>
     <main>
         {% block content %}{% endblock %}
