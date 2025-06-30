@@ -14,7 +14,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=senha)
         if user:
             login(request, user)
-            return redirect('/eventos/')  # ou use redirect('nome_da_view')
+            return redirect('/eventos/') 
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
     return render(request, 'usuarios/login.html')
@@ -58,7 +58,7 @@ def cadastrar_usuario(request):
         form = UsuarioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('sucesso')  # ou alguma página de confirmação
+            return redirect('sucesso') 
     else:
         form = UsuarioForm()
     return render(request, 'cadastro.html', {'form': form})
@@ -69,7 +69,7 @@ def criar_evento(request):
         form = EventoForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('listar_eventos')  # substitua com sua URL real
+            return redirect('listar_eventos')  
     else:
         form = EventoForm()
     return render(request, 'criar_evento.html', {'form': form})
