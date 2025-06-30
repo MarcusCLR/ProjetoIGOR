@@ -124,7 +124,9 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Salvar Evento</button>
+        <div style="display: flex; flex-direction: column;">
+          <button type="submit">Salvar Evento</button>
+        </div>
     </form>
   </div>
 </div>
